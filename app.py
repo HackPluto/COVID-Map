@@ -1,6 +1,14 @@
+<<<<<<< Updated upstream
 from flask import Flask
 from flask import render_template
 from flask import jsonify
+=======
+# -*- coding: utf-8 -*-
+from flask import Flask
+from flask import render_template
+from flask import jsonify
+from flask import request
+>>>>>>> Stashed changes
 from jieba.analyse import extract_tags
 import utils
 import string
@@ -14,6 +22,26 @@ app = Flask(__name__)
 def hello_world():
     return render_template('main.html')
 
+<<<<<<< Updated upstream
+=======
+@app.route('/city', methods=["get", "post"])
+def get_city_data():
+    city = request.values.get("city")
+    (content, labels) = utils.get_city(city)
+    return render_template("index.html", content=content, labels=labels)
+
+@app.route('/time', methods=["get", "post"])
+def get_time_data():
+    city = request.values.get("time")
+    (content, labels) = utils.get_city(city)
+    return render_template("index.html", content=content, labels=labels)
+
+
+@app.route('/chaxun')
+def cha_xun():
+    return render_template('index.html')
+
+>>>>>>> Stashed changes
 @app.route('/c1')
 def get_c1_data():
 	data = utils.get_c1_data()
@@ -63,7 +91,11 @@ def get_r1_data():
 
 @app.route("/r2")
 def get_r2_data():
+<<<<<<< Updated upstream
     data = utils.get_r2_data() #格式 (('民警抗疫一线奋战16天牺牲1037364',), ('四川再派两批医疗队1537382',)
+=======
+    data = utils.get_r2_data()
+>>>>>>> Stashed changes
     d = []
     for i in data:
         k = i[0].rstrip(string.digits)  # 移除热搜数字
@@ -77,16 +109,25 @@ def get_r2_data():
 
 
 
+<<<<<<< Updated upstream
+=======
+@app.route('/wmap')
+def first_page():
+    return render_template("first_page.html")
+>>>>>>> Stashed changes
 
 @app.route('/time')
 def gettime():
 	return utils.get_time()
 
 
+<<<<<<< Updated upstream
 @app.route('/tem')
 def hello_world3():
     return render_template("index.html")
 
+=======
+>>>>>>> Stashed changes
 @app.route('/ajax', methods=["get","post"])
 def hello_world4():
     return '10000'

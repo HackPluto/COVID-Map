@@ -100,3 +100,27 @@ body {
 	right: 0%;
 	background: #777777;
 }
+<<<<<<< Updated upstream
+=======
+#l13{
+    position: absolute;
+    width: 35%;
+    height: 10%;
+    top: 20%;
+    left: 20%;
+}
+#l14{
+    position: absolute;
+    width: 35%;
+    height: 20%;
+    top: 20%;
+    left: 55%;
+}
+#tb1{
+    position: absolute;
+    width: 35%;
+    height: 50%;
+    top: 30%;
+    left: 55%;
+}
+>>>>>>> Stashed changes

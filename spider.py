@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+# -*- coding: utf-8 -*-
+>>>>>>> Stashed changes
 import requests
 import json
 import time
@@ -169,7 +173,12 @@ def update_hotsearch():
 	cursor = None
 	conn = None
 	try:
+<<<<<<< Updated upstream
 		context = get_baidu_hot()
+=======
+		#context = get_baidu_hot()
+		context=["武汉疫情1037365","吉林疫情出现转机1037264","美国疫情超100万1047364","四川再派两批医疗队1537382","境外输入1037369","疫苗1037374","民警抗疫一线奋战16天牺牲1037364","福奇称新冠疫苗或无法实现长期免疫1077364","口罩机熔喷布价格暴跌1087364","世卫组织对#中南美洲国家疫情加速蔓延表示担忧1037354","新加坡新增确诊517例累计36922例1034364","脱贫攻坚和抗击新冠肺炎疫情1037360","疫情蔓延中国蓝盔紧急修建中转隔离中心1037304","疫情期间的网课1031364"]
+>>>>>>> Stashed changes
 		print(f"{time.asctime()}开始更新热搜数据")
 		conn, cursor = get_conn()
 		sql = "insert into hotsearch(dt,content) values(%s,%s)" 
@@ -189,6 +198,27 @@ def update_hotsearch():
 # print(his)
 # print(de)
 if __name__ == "__main__":
+<<<<<<< Updated upstream
     insert_history()
     update_details()
     update_hotsearch()
+=======
+    l = len(sys.argv)
+    if l == 1:
+        s = """
+        请输入参数
+        参数说明，
+        up_his 更新历史记录表
+        up_hot 更新实时热搜
+        up_det 更新详细表
+        """
+        print(s)
+    else:
+        order = sys.argv[1]
+        if order == "up_his":
+            update_history()
+        elif order == "up_det":
+            update_details()
+        elif order == "up_hot":
+            update_hotsearch()
+>>>>>>> Stashed changes

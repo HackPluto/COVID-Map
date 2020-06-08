@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+# -*- coding: utf-8 -*-
+>>>>>>> Stashed changes
 import time
 import pymysql
 
@@ -99,7 +103,32 @@ def get_r2_data():
     return res
 
 
+<<<<<<< Updated upstream
 # if __name__ == "__main__":
 # 	print(get_r2_data())
+=======
+
+def get_city(city):
+    sql = """
+    Select province,city,confirm,confirm_add,heal,dead
+    From details
+    Where city=(%s)
+"""
+    content = query(sql, city)
+    labels = ("省份","城市","确诊","新增确诊","治愈","死亡")
+    content = tuple(content)
+    return content, labels
+
+def get_time(time):
+    sql = """
+    Select ds,confirm,confirm_add,suspect,suspect_add,heal,heal_add,dead,dead_add
+    From history
+    Where ds=(%s)
+"""
+    content, cols = query(sql, time+" 00:00:00")
+    labels = ("时间","确诊","新增确诊","疑似","新增疑似","治愈","新增治愈","死亡","新增死亡")
+    content = tuple(content)
+    return content, labels
+>>>>>>> Stashed changes
 
 
